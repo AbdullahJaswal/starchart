@@ -28,5 +28,5 @@ pub fn fetch_celestial_objects(limit: usize) -> Result<Vec<CelestialObject>, rus
 
     let celestial_objects: rusqlite::Result<Vec<CelestialObject>, rusqlite::Error> = celestial_objects_iter.collect();
 
-    return celestial_objects;
+    celestial_objects
 }
