@@ -1,8 +1,9 @@
 use colortemp::RGB;
+use serde::{Deserialize, Serialize};
 use spv_rs::position::position;
 
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct CelestialObject {
     source_id: u64,
     ra: f64,
@@ -55,6 +56,10 @@ impl CelestialObject {
             teff_gspphot_upper,
             cartesian,
         }
+    }
+
+    pub fn get_catesian(&self) -> [f64; 3] {
+        self.cartesian
     }
 
     pub fn get_cartesian_x(&self) -> f64 {
